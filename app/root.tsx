@@ -1,33 +1,39 @@
 import {
-  Links,
+  LiveReload,
   Meta,
+  NavLink,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import type { MetaFunction } from "@remix-run/node";
 
-export function Layout({ children }: { children: React.ReactNode }) {
+import "./styles.css";
+
+export function Layout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
-    </html>
+    <>
+      {/*<LiveReload />*/}
+      <Meta />
+      <Scripts />
+      <ScrollRestoration />
+      <nav>
+        <NavLink to={""}>home</NavLink>
+        <NavLink to={"/posts"}>posts</NavLink>
+      </nav>
+      {children}
+    </>
   );
+}
+
+export const meta: MetaFunction = () => {
+  return [{ title: "site" }, { name: "description", content: "site" }];
+};
+
+export function HydrateFallback() {
+  return <p>Loading...</p>;
 }
 
 export default function App() {
   return <Outlet />;
-}
-
-export function HydrateFallback() {
-  return <p>Loading...</p>;
 }
