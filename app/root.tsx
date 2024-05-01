@@ -19,7 +19,7 @@ export function Layout({ children }) {
       <ScrollRestoration />
       <nav>
         <NavLink to={""}>home</NavLink>
-        <NavLink to={"/posts"}>posts</NavLink>
+        <NavLink to={"/posts"}>blog</NavLink>
       </nav>
       {children}
     </>

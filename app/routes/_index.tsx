@@ -8,7 +8,7 @@ export default function Index() {
   return (
     <div>
       <h1>home</h1>
-      <p>software engineer</p>
+      <p>hello</p>
     </div>
   );
 }

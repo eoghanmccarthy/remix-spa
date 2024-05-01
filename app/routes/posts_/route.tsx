@@ -5,7 +5,7 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { client } from "../../api";
 
 export const meta: MetaFunction = () => {
-  return [{ title: "notes" }, { name: "description", content: "notes" }];
+  return [{ title: "blog" }, { name: "description", content: "blog" }];
 };
 
 export async function clientLoader() {
@@ -18,15 +18,13 @@ export default function Notes() {
 
   return (
     <div>
-      <h1>notes</h1>
+      <h1>blog</h1>
       <ul>
         {data.posts.map((post) => {
-          console.log("post", post);
           return (
             <li key={post.id}>
-              {/*<Link to={post.slug}>{post.title}</Link>*/}
-              {post.name}
-              {post.name ? <p>{post.name}</p> : null}
+              <Link to={`${post.id}`}>{post.title}</Link>
+              {post.content ? <p>{post.content}</p> : null}
             </li>
           );
         })}
