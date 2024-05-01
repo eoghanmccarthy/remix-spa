@@ -19,7 +19,7 @@ export function Layout({ children }) {
       <ScrollRestoration />
       <nav>
         <NavLink to={""}>home</NavLink>
-        <NavLink to={"/posts"}>blog</NavLink>
+        <NavLink to={"/posts"} prefetch={"intent"}>blog</NavLink>
       </nav>
       {children}
     </>

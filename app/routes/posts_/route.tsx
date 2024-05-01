@@ -23,7 +23,7 @@ export default function Notes() {
         {data.posts.map((post) => {
           return (
             <li key={post.id}>
-              <Link to={`${post.id}`}>{post.title}</Link>
+              <Link to={`${post.id}`} prefetch={"intent"}>{post.title}</Link>
               {post.content ? <p>{post.content}</p> : null}
             </li>
           );
